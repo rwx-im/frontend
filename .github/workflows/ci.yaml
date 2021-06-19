@@ -21,6 +21,9 @@ jobs:
           toolchain: ${{ matrix.rust }}
           override: true
 
+      - name: Install dependencies
+        run: sudo apt install libsodium-dev
+
       - name: Run cargo check
         uses: actions-rs/cargo@v1
         with:
@@ -44,6 +47,9 @@ jobs:
           toolchain: ${{ matrix.rust }}
           components: clippy
           override: true
+
+      - name: Install dependencies
+        run: sudo apt install libsodium-dev
 
       - uses: actions-rs/clippy-check@v1
         with:
